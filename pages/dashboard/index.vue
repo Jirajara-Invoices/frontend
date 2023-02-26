@@ -1,13 +1,11 @@
 <template>
-
+  <div>Dashboard page</div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'dashboard',
+  layout: "dashboard",
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

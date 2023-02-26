@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <div>Admin Layout</div>
-    <slot />
-  </div>
+  <div>Login page</div>
 </template>
 
 <script setup lang="ts"></script>

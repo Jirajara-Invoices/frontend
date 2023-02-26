@@ -13,11 +13,15 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/icon?family=Material+Icons&display=swap",
         },
+        {
+          rel: "stylesheet",
+          href: "/assets/css/MingCute.css",
+        },
       ],
     },
     pageTransition: {
       name: "page",
-      mode: "default",
+      mode: "in-out",
     },
   },
   modules: ["@nuxtjs/tailwindcss", "@vuestic/nuxt"],
