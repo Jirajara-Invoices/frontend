@@ -12,6 +12,7 @@ export default defineConfig({
         "vue-router",
         {
           "vuestic-ui": ["VaButton", "VaInput", "VaForm", "VaSelect"],
+          nuxt: ["NuxtLink", "Nuxt"],
         },
       ],
       dts: true,
