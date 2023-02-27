@@ -5,6 +5,8 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const Nuxt: typeof import('nuxt')['Nuxt']
+  const NuxtLink: typeof import('nuxt')['NuxtLink']
   const VaButton: typeof import('vuestic-ui')['VaButton']
   const VaForm: typeof import('vuestic-ui')['VaForm']
   const VaInput: typeof import('vuestic-ui')['VaInput']

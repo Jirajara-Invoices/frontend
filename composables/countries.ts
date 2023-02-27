@@ -1,8 +1,10 @@
-import * as isoCountries from "i18n-iso-countries";
+// eslint-disable-next-line import/default
+import isoCountries from "i18n-iso-countries";
 import en from "i18n-iso-countries/langs/en.json";
 import es from "i18n-iso-countries/langs/es.json";
 
 // Loaded in this way because vitest doesn't support cjs named imports like nuxt default bundler.
+// eslint-disable-next-line import/no-named-as-default-member
 const { getNames, registerLocale } = isoCountries;
 
 registerLocale(en);
