@@ -23,8 +23,10 @@
             <va-list-item-section>
               <va-list-item-label>{{ inv.status }}</va-list-item-label>
             </va-list-item-section>
-            <va-list-item-section>
-              <va-button size="medium" preset="plain">View</va-button>
+            <va-list-item-section icon>
+              <va-button size="medium" preset="secondary">
+                <va-icon class="mgc_eye_line view-icon" />
+              </va-button>
             </va-list-item-section>
           </va-list-item>
         </va-list>
@@ -48,8 +50,10 @@
                 {{ address.country }}
               </va-list-item-label>
             </va-list-item-section>
-            <va-list-item-section>
-              <va-button size="medium" preset="plain">View</va-button>
+            <va-list-item-section icon>
+              <va-button size="medium" preset="secondary">
+                <va-icon class="mgc_eye_line view-icon" />
+              </va-button>
             </va-list-item-section>
           </va-list-item>
         </va-list>
@@ -132,4 +136,8 @@ const addresses = ref([
 ]);
 </script>
 
-<style scoped></style>
+<style scoped>
+.view-icon::before {
+  color: var(--va-primary);
+}
+</style>
