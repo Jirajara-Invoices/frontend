@@ -32,16 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import {
-  VaForm,
-  VaInput,
-  VaSelect,
-  VaButton,
-  ValidationRule,
-} from "vuestic-ui";
-import { SelectableOption } from "vuestic-ui/dist/types/composables";
-import { EMAIL_REGEX } from "../utilities/constants";
+import { VaForm, VaInput, VaSelect, VaButton } from "vuestic-ui";
 import { useCountries } from "../composables/countries";
+import { emailRules, inputRules, countryRules } from "../utilities/rules";
 
 const router = useRouter();
 
@@ -51,19 +44,6 @@ const name = ref("");
 const email = ref("");
 const password = ref("");
 const country = ref<(typeof countries)[0]>();
-
-const emailRules = [
-  (v: string) => !!v || "The email is required",
-  (v: string) => EMAIL_REGEX.test(v) || "The email must be valid",
-];
-const inputRules = (name: string, length: number) => [
-  (v: string) => !!v || `The ${name} is required`,
-  (v: string) =>
-    v.length >= length || `The ${name} must be at least ${length} characters`,
-];
-const countryRules: ValidationRule<SelectableOption>[] = [
-  (v) => (!!v && v !== "") || "The country is required",
-];
 
 const onSubmit = () => {
   if (signUpForm.value?.validate()) {

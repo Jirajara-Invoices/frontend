@@ -20,22 +20,13 @@
 
 <script setup lang="ts">
 import { VaForm, VaInput, VaButton } from "vuestic-ui";
-import { EMAIL_REGEX } from "../utilities/constants";
+import { emailRules, passwordRules } from "../utilities/rules";
 
 const router = useRouter();
 
 const loginForm = ref<typeof VaForm | null>(null);
 const email = ref("");
 const password = ref("");
-
-const emailRules = [
-  (v: string) => !!v || "The email is required",
-  (v: string) => EMAIL_REGEX.test(v) || "The email must be valid",
-];
-const passwordRules = [
-  (v: string) => !!v || "The password is required",
-  (v: string) => v.length >= 8 || "The password must be at least 8 characters",
-];
 
 const onSubmit = () => {
   if (loginForm.value?.validate()) {
