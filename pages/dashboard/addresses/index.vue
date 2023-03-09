@@ -1,7 +1,13 @@
 <template>
   <div class="min-h-[80vh]">
     <div class="flex">
-      <va-button class="new-address" size="large">New Address</va-button>
+      <va-button
+        class="new-address"
+        size="large"
+        @click="openAddAddressFormModal"
+      >
+        New Address
+      </va-button>
     </div>
     <va-list class="mt-4">
       <va-list-label>Addresses</va-list-label>
@@ -29,7 +35,11 @@
           <va-button size="medium" preset="secondary">
             <va-icon class="mgc_eye_line view-icon" />
           </va-button>
-          <va-button size="medium" preset="secondary">
+          <va-button
+            size="medium"
+            preset="secondary"
+            @click="openEditAddressFormModal"
+          >
             <va-icon class="mgc_pencil_line edit-icon" />
           </va-button>
           <va-button color="danger" size="medium" preset="secondary">
@@ -38,14 +48,23 @@
         </va-list-item-section>
       </va-list-item>
     </va-list>
+    <AddressFormModal
+      :open="openModal"
+      :title="modalTitle"
+      @update-open="openModal = false"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import AddressFormModal from "~/components/AddressFormModal.vue";
+
 definePageMeta({
   layout: "dashboard",
 });
 
+const openModal = ref(false);
+const modalTitle = ref("");
 const addresses = ref([
   {
     id: 1,
@@ -75,6 +94,16 @@ const addresses = ref([
     country: "USA",
   },
 ]);
+
+const openAddAddressFormModal = () => {
+  modalTitle.value = "Add an Address";
+  openModal.value = true;
+};
+
+const openEditAddressFormModal = () => {
+  modalTitle.value = "Edit Address";
+  openModal.value = true;
+};
 </script>
 
 <style scoped>
