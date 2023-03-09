@@ -51,7 +51,11 @@
               </va-list-item-label>
             </va-list-item-section>
             <va-list-item-section icon>
-              <va-button size="medium" preset="secondary">
+              <va-button
+                size="medium"
+                preset="secondary"
+                @click="openViewAddressModal"
+              >
                 <va-icon class="mgc_eye_line view-icon" />
               </va-button>
             </va-list-item-section>
@@ -59,6 +63,10 @@
         </va-list>
       </div>
     </div>
+    <AddressViewModal
+      :open="isViewAddressModalOpen"
+      @update-open="isViewAddressModalOpen = false"
+    />
   </div>
 </template>
 
@@ -66,6 +74,12 @@
 definePageMeta({
   layout: "dashboard",
 });
+
+const isViewAddressModalOpen = ref(false);
+
+const openViewAddressModal = () => {
+  isViewAddressModalOpen.value = true;
+};
 
 const invoices = ref([
   {
